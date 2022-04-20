@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 초깃값이 다른 심플 카운터 3개 표시 -->
+        <simple-counter startnumber="1"></simple-counter>
+        <simple-counter startnumber="10"></simple-counter>
+        <simple-counter startnumber="100"></simple-counter><br>
+
+        <minus-counter startnumber="200"></minus-counter>
+        <minus-counter startnumber="100"></minus-counter>
+        <minus-counter startnumber="10"></minus-counter>
+    </div>
+    <script>
+        Vue.component('minus-counter',{
+            props: ['startnumber'],
+            template: `
+            <button v-on:click="minusCounter">
+                누르면 -2가 됩니다: {{ fnMinusCounter }}
+            </button>`,
+            data: function() {
+                return { nCounter: parseInt(this.startnumber) }
+            },
+            computed: {
+                fnMinusCounter: function() {
+                    return this.nCounter;
+                }
+            },
+            methods: {
+                minusCounter: function() {
+                    this.nCounter -=2;
+                }
+            }
+        })
+
+        // 심플 카운터 컴포넌트 디자인 및 등록
+        Vue.component('simple-counter',{
+            // 1. 엘리먼트 속성값으로 받을 startnumber 선언
+            props: ['startnumber'], //엘리먼트에서 문자열로 받음
+            // 2. 화면에 표시할 템플릿 정의
+            template: `
+                <button v-on:click="fnIncCounter">
+                    카운터: {{ fnGetCounter }}
+                </button>`,
+            // 3. 데이터 속성은 함수로 선언하여 속성값으로 받은 startnumber를 nCounter에 저장
+            data: function() {
+                return { nCounter: parseInt(this.startnumber) }// 정수로 변환
+            },
+            // 4. 데이터를 읽어다가 머스태시에 바인딩하는 computed 속성 정의
+            computed: {
+                fnGetCounter: function() {
+                    return this.nCounter;
+                }
+            },
+            // 5. 버튼을 누르면 이벤트 핸들러로 카운터값이 1만큼 증가하는 methods 속성 정의
+            methods: {
+                fnIncCounter: function() {
+                    this.nCounter +=1;
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>

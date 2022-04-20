@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="main">
+        <p>{{ sMsg }}</p>
+        <!-- v-model은 데이터를 가져오는 동시에 입력이 동기화됨 -->
+        <!-- 엘리먼트의 어트리뷰트는 'v-model:' 다음에 명시 -->
+        <input v-model:vale="sMsg">
+    </div>
+    <script>
+        let main = new Vue({
+            el: '#main',
+            data: {
+                sMsg: '안녕하세요!'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>안녕하세요!</h1>
+    <button onclick="fnSayHello()">눌러 주세요!</button>
+
+    <script>
+        //함수 선언식
+        function fnSayHello(){
+            alert("안녕하세요!");
+        }
+
+        //함수 표현식
+        const fnMinusNumbers = function (pNum1,pNum2) {
+            return pNum1 - pNum2;
+        }
+
+        //호이스팅
+        fnSayHello1();
+        function fnSayHello1(){
+            console.log("안녕하세요1!");
+        }
+
+        //함수 표현식은 '선언 후 호출' 순서를 엄격하게 지켜야 함
+        //fnSayHello2();
+        const fnSayHello2 = function(){
+            console.log("안녕하세요2!");
+        }
+    </script>
+    <script src="콜백함수.js"></script>
+    <script src="JSON함수.js"></script>
+    <script src="Promise로직.js"></script>
+    <script src="await연산자와async함수.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //fetch(path)
+        // path: 데이터를 읽을 주소
+        // 반환값: 서버가 응답하는 값을 Promise 객체로 반환
+    </script>
+</head>
+<body>
+    <button onclick="
+    // JSON 로컬 텍스트 표시
+    fetch('./02-02data.json')
+        .then(pResponse => pResponse.text())
+        .then(pJSON => console.log(pJSON));
+    ">JSON 로컬 읽기</button>
+
+    <button onclick="
+        /*
+        // 원격 JSON 텍스트 표시
+        fetch('https://cors-anywhere.herokuapp.com/'+'https://jsonplaceholder.typicode.com/posts/1')
+        */
+        // 책의 내용은 jsonplaceholder 사이트가 cors를 지원하지 않을 때를 대비하여 작성되었습니다.
+        // 현재는 cors-anywhere를 지원하므로 다음처럼 사용하지 않을 때 정상 실행됩니다.
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then(pResponse => pResponse.text())
+        .then(pJSON => console.log(pJSON));
+    ">JSON 원격 읽기</button>
+    
+</body>
+</html>
